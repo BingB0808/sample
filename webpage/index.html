@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Diabetes prediction</title>
+</head>
+<body>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <h1>Diabetes Prediction</h1>
+      <div class="row center">
+      </div>
+      <form action="{{ url_for('main') }}" method="POST">
+	  <fieldset>
+        <legend>Input values:</legend>
+         Pregnancies:
+        <input name="Pregnancies" required>
+        <br>
+        <br>OGTT(Oral Glucose Tolerance Test):
+        <input name="Glucose" required>
+        <br>
+        <br>Blood Pressure:
+        <input name="BloodPressure" required>
+        <br>
+		<br>Skin Thickness:
+        <input name="SkinThickness" required>
+        <br>
+        <br>Insulin:
+        <input name="Insulin" required>
+        <br>
+        <br>BMI(Body Mass Index):
+        <input name="BMI" required>
+        <br>
+		<br>Diabetes Pedigree Function:
+        <input name="DiabetesPedigreeFunction" required>
+        <br>
+        <br>Age:
+        <input name="Age" required>
+        <br>
+        <br>
+        <input type="submit">
+		</fieldset>
+		</form>
+          </div>
+        </form>
+  </div>
+      <br>
+      <div class="pred" >
+	  {% if pred %}
+	  {% for variable, value in original_input.items() %}
+	  <b>{{ variable }}</b> : {{ value }}
+	  {% endfor %}
+	
+	  <br> Result:
+	  <h3>{{ pred }}</h3>
+	  {% endif %}
+  </div>   
+    <br><br>
+  </div>
+  </div>
+  </body>
+</html>
+
